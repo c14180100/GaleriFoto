@@ -8,8 +8,19 @@
 
 <ion-content [fullscreen]="true">
   <br>
-  <ion-button expand="block">Take Photo Profile</ion-button>
+  <ion-button expand="block" (click)="TambahFoto()">Take Photo Profile</ion-button>
   <br><hr>
   <p>You have to guess a number (1 - 10) to show the photo profile</p>
   <ion-input type="text" placeholder="Enter Here..." [(ngModel)]="nomor"></ion-input>
+  <ion-button color="secondary" (click)="guess()">Guess!</ion-button>
+
+  <br>
+
+  <div *ngIf="showPhoto">
+    <div *ngFor="let isiFoto of fotoService2.dataFoto; index as position">
+      <ion-img [src]="isiFoto.webviewPath"></ion-img>
+    </div>
+  </div>
+  
+
 </ion-content>
